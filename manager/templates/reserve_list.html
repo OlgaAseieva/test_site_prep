@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <section id="reserve">
+        <div class="container">
+
+             <div class="col-md-10 col-md-offset-1">
+
+                {% for item in lst %}
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="{% url 'manager:update reserve' pk=item.pk %}">
+                                <buttom type = 'buttom' class ='btn btn-primary'>Close order</buttom>
+                            </a>
+                        </div>
+                        <div class="col-md-3">{{ item.date|date:'d-m-Y'}}</div>
+                        <div class="col-md-3">{{ item.name }}</div>
+                        <div class="col-md-3">{{ item.phone }}</div>
+                        <div class="col-md-3">{{ item.plan_date|}}</div>
+                        <div class="col-md-3">{{ item.person}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-9"><p>{{ item.message}}</p></div>
+                    </div>
+                {% endfor %}
+             </div>
+        </div>
+    </section>
+
+{% endblock %}
